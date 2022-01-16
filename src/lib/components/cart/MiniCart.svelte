@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { spring, tweened } from 'svelte/motion';
-	import { sineIn, sineInOut, sineOut } from 'svelte/easing';
+	import { sineInOut, quintInOut } from 'svelte/easing';
 	import cart, { addOne, subtractOne } from '$lib/shared/stores/cart';
 	import Step from '../utils/Step.svelte';
 	import imgURL from './images/cart.png';
 	import CloseButton from '../button/CloseButton.svelte';
-	import MiniCartListing from './MiniCartListing.svelte';
+	import MiniCartListing from './CartListingItems.svelte';
 	import Button from '../button/Button.svelte';
 
-	const easing = sineInOut;
+	const easing = quintInOut;
 	const duration = 320;
 	const delay = 300;
 
@@ -40,6 +40,10 @@
 	}
 
 	const toggleCart = () => {
+		if ($toggleCartItems % 1 !== 0 || $showCart % 1 !== 0) {
+			return false;
+		}
+
 		showCart.update((val) => (val ? 0 : 1), {
 			delay: $showCart ? 0 : delay * 2 - 100
 		});
@@ -50,6 +54,11 @@
 	};
 </script>
 
+<div
+	style="display: {$toggleCartItems === 0 ? 'none' : 'block'};"
+	class="backdrop"
+	on:click={toggleCart}
+/>
 <section
 	class="cart-container dark:bg-gray-800 cursor-pointer shadow bg-stone-100 rounded-full flex justify-center flex-col items-center"
 	style="transform: scale({offset});  border-radius: calc(50% - {50 -
@@ -75,15 +84,25 @@
 </section>
 <div
 	class="mini-cart-drawer dark:bg-gray-800 bg-stone-50 shadow"
-	style="transform: scale(calc(0.04 + {0.96 * $toggleCartBackground}))"
+	style="transform: scale({1 * $toggleCartBackground})"
 />
 
 <div
 	class="mini-cart-drawer"
 	style="display: {$toggleCartItems === 0 ? 'none' : 'block'}; opacity: {$toggleCartItems} "
 >
-	<div on:click={toggleCart} class="absolute  right-10 cursor-pointer" style="top: 30px">
-		<CloseButton />
+	<div
+		on:click={toggleCart}
+		class="absolute cursor-pointer flex items-center justify-items-center overflow-hidden z-50"
+		style="top: 10px; width: 30px; height: 30px; right: 20px"
+	>
+		<div
+			class="absolute close-btn-inner"
+			style="transform: translateY({100 - 100 * $toggleCartItems}px); opacity: {1 *
+				$toggleCartItems}"
+		>
+			<CloseButton />
+		</div>
 	</div>
 	<h2 class="pl-4 pt-5">CartItems</h2>
 	<div class="overflow-scroll h-full overscroll-none pb-5">
@@ -93,13 +112,23 @@
 		class="flex flex-row justify-between p-5 absolute bottom-0 left-0 right-0 border-t-2 items-center z-50 bg-white dark:bg-gray-800 dark:border-t-slate-700"
 	>
 		<div>{parseInt($totalPrice).toLocaleString()}</div>
-		<div>
-			<Button btnType="small">Checkout</Button>
+		<div on:click={toggleCart}>
+			<a href="/checkout">
+				<Button btnType="small">Checkout</Button>
+			</a>
 		</div>
 	</div>
 </div>
 
 <style>
+	.backdrop {
+		z-index: 999;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
 	.cart-container {
 		position: fixed;
 		z-index: 1001;
@@ -133,5 +162,11 @@
 		backface-visibility: hidden;
 		border: 1px solid var(--accent-color);
 		z-index: 5;
+	}
+
+	.close-btn-inner {
+		top: calc(50% - 10px);
+		left: calc(50% - 2px);
+		z-index: -1;
 	}
 </style>

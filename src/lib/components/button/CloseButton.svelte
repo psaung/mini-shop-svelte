@@ -3,6 +3,9 @@
 <style>
 	.close-btn {
 		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.close-btn:before,
@@ -14,6 +17,8 @@
 		height: 20px;
 		border-radius: 2px;
 		background: inherit;
+		top: 0;
+		left: 0;
 	}
 
 	.close-btn:before {

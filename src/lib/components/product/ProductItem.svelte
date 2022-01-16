@@ -10,7 +10,7 @@
 
 <div class="product {isColumn && 'product-column'}" transition:slide={{ delay: 100 * index }}>
 	<img src={product.product_image} alt={product.product_name} class="dark:shadow-none shadow" />
-	<div class={!isColumn && 'grid gap-3 mt-5'}>
+	<div class={!isColumn ? 'grid gap-3 mt-5' : 'relative w-full'}>
 		<h3>{product.product_name}</h3>
 		<div>
 			Price: <span class="inline-block text-green-700">{product.product_price} $</span>

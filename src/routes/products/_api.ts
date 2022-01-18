@@ -25,39 +25,7 @@ export async function api(
 		return { status: 401 };
 	}
 
-	const data = [
-		{
-			id: 1,
-			product_name: 'Zinc Plus',
-			product_image: 'https://picsum.photos/id/104/3840/2160.jpg',
-			product_description: 'Lorem ipsum dollur sit amut',
-			product_price: 300,
-			product_sku: 'zinc_plus_360',
-			category: { id: 2, category_name: 'Health' }
-		},
-		{
-			id: 2,
-			product_name: 'Traditional Blouse',
-			product_image: 'https://picsum.photos/id/1054/3079/1733',
-			product_description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum d',
-			product_price: 310,
-			product_sku: 'traditional_blouse_221',
-			category: { id: 3, category_name: 'Fashion' }
-		},
-		{
-			id: 3,
-			product_name: 'Skin care',
-			product_image: 'https://picsum.photos/id/1068/7117/4090.jpg',
-			product_description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum d. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum d',
-			product_price: 120,
-			product_sku: 'skin_care_120',
-			category: { id: 1, category_name: 'Cosmetic' }
-		}
-	];
-
-	/*const { data, error, status } = await supabase.from('products').select(`
+	const { data, error, status } = await supabase.from('products').select(`
 		id,
 		product_name,
 		product_image,
@@ -71,7 +39,6 @@ export async function api(
 	`);
 
 	if (error) throw error;
-	*/
 
 	return {
 		status: 200,

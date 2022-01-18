@@ -6,7 +6,7 @@
 		const res = await fetch('/products.json');
 
 		if (res.ok) {
-			const products = await res.json();
+			const { data: products } = await res.json();
 
 			return {
 				props: { products }
@@ -29,8 +29,9 @@
 	export let products: Product[];
 
 	const getQuantity = (id, cart) => {
-		if (cart[id]) {
-			return cart[id].quantity;
+		const item = cart.find((c) => c.product_id === id);
+		if (item) {
+			return item.quantity;
 		}
 
 		return 0;
@@ -57,13 +58,11 @@
 	<div class="product-container">
 		{#each products as product, index (product.id)}
 			<ProductItem {product} {index}>
-				<div class="ml-auto">
-					<AddToCartButton
-						quantity={getQuantity(product.id, $cart)}
-						onIncrease={() => handleIncrease(product)}
-						onDecrease={(removeAll) => handleDecrease(product, removeAll)}
-					/>
-				</div>
+				<AddToCartButton
+					quantity={getQuantity(product.id, $cart)}
+					onIncrease={() => handleIncrease(product)}
+					onDecrease={(removeAll) => handleDecrease(product, removeAll)}
+				/>
 			</ProductItem>
 		{/each}
 	</div>

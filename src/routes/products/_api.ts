@@ -75,7 +75,7 @@ export async function api(
 
 	return {
 		status: 200,
-		body: data
+		body: { data, status: 200 }
 	};
 
 	// return {

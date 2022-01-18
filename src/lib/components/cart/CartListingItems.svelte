@@ -4,14 +4,14 @@
 	import type { CartItem } from '$lib/shared/types/Cart';
 	import type { Product } from '$lib/shared/types/Product';
 
-	export let cartItems: Record<string, CartItem> = {};
+	export let cartItems: CartItem[] = [];
 	export let disableAction = false;
 	export let onIncrease = (product: Product) => null,
 		onDecrease = (product: Product, removeAll: Boolean) => null;
 </script>
 
 <div>
-	{#each Object.keys(cartItems).map((v) => cartItems[v]) as cart, index (cart.product.id)}
+	{#each cartItems as cart, index (cart.product.id)}
 		<ProductItem product={cart.product} {index} isColumn={true}>
 			{#if !disableAction}
 				<CartCounter

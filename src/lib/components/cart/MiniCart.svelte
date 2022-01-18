@@ -22,16 +22,11 @@
 	});
 	const totalPrice = tweened(null, { easing: sineInOut });
 	$: quantity.set(
-		Object.keys($cart).reduce((p, v) => {
-			return p + ($cart?.[v]?.quantity || 0);
+		$cart.reduce((p, v) => {
+			return p + (v?.quantity || 0);
 		}, 0)
 	);
-	$: totalPrice.set(
-		Object.keys($cart).reduce(
-			(p, v) => p + $cart?.[v]?.quantity * $cart?.[v]?.product.product_price,
-			0
-		)
-	);
+	$: totalPrice.set($cart.reduce((p, v) => p + v?.quantity * v?.product.product_price, 0));
 
 	$: offset = 1 - 0.1 * modulo($quantity, 1);
 	function modulo(n: number, m: number) {

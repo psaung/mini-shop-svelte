@@ -1,5 +1,5 @@
 <script type="ts">
-	import { fade, scale, slide } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import type { Product } from '$lib/shared/types/Product';
 
 	export let product: Product;
@@ -8,7 +8,11 @@
 	/* transition:scale|local={{ start: 0.7 }} */
 </script>
 
-<div class="product {isColumn && 'product-column'}" transition:slide={{ delay: 100 * index }}>
+<div
+	class="product {isColumn && 'product-column'}"
+	in:fly={{ delay: 300, duration: 300, y: 10 }}
+	out:fly={{ delay: 300, duration: 300, y: 10 }}
+>
 	<img src={product.product_image} alt={product.product_name} class="dark:shadow-none shadow" />
 	<div class={!isColumn ? 'grid gap-3 mt-5' : 'relative w-full'}>
 		<h3>{product.product_name}</h3>

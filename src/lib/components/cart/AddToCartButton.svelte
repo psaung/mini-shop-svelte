@@ -11,11 +11,19 @@
 
 <div class="relative w-full h-20 text-left flex items-center justify-self-end">
 	{#if showAddToCart}
-		<div transition:fly class="absolute inline-block right-0">
+		<div
+			in:fly={{ delay: 300, duration: 300, x: -5 }}
+			out:fly={{ duration: 300, x: 5 }}
+			class="absolute inline-block right-0"
+		>
 			<Button handleClick={() => onIncrease()}>Add To Cart</Button>
 		</div>
 	{:else}
-		<div transition:fly class="absolute inline-block w-full right-0 text-right pr-5">
+		<div
+			in:fly={{ delay: 300, duration: 300, x: 5 }}
+			out:fly={{ duration: 300, x: -5 }}
+			class="absolute inline-block w-full right-0 text-right pr-5"
+		>
 			<CartCounter {quantity} {onDecrease} {onIncrease} />
 		</div>
 	{/if}

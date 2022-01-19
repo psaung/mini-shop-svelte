@@ -101,15 +101,19 @@
 	</div>
 	<h2 class="pl-4 pt-5">CartItems</h2>
 	<div class="overflow-scroll h-full overscroll-none pb-5">
-		<MiniCartListing cartItems={$cart} onDecrease={subtractOne} onIncrease={addOne} />
+		{#if $cart.length > 0}
+			<MiniCartListing cartItems={$cart} onDecrease={subtractOne} onIncrease={addOne} />
+		{:else}
+			<div class="text-red-700 p-4">There is no items in your cart.</div>
+		{/if}
 	</div>
 	<div
 		class="flex flex-row justify-between p-5 absolute bottom-0 left-0 right-0 border-t-2 items-center z-50 bg-white dark:bg-gray-800 dark:border-t-slate-700"
 	>
 		<div>{parseInt($totalPrice).toLocaleString()}</div>
-		<div on:click={toggleCart}>
+		<div on:click={toggleCart} class={$totalPrice < 1 && 'cursor-not-allowed pointer-events-none'}>
 			<a href="/checkout">
-				<Button btnType="small">Checkout</Button>
+				<Button btnType="small" isDisabled={$totalPrice < 1}>Checkout</Button>
 			</a>
 		</div>
 	</div>

@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	import Button from '$lib/components/button/Button.svelte';
+	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 
 	export const prerender = true;
 </script>
@@ -9,10 +10,10 @@
 	<meta name="description" content="Experimenting SSR with svelte kit" />
 </svelte:head>
 
-<section class="main-container">
-	<h3 class="max-w-4xl mx-auto py-8">Mini Shop!</h3>
+<TransitionContainer>
+	<h1 class="max-w-4xl mx-auto pb-5">Mini Shop!</h1>
 	<p>This project is experimenting how's page and SSR working with svelte kit and supabase.</p>
-	<ul class="mt-10">
+	<ul class="mt-5">
 		<li>
 			[Svelete kit](<a href="https://kit.svelte.dev" class="link" target="_blank" rel="noreferrer"
 				>https://kit.svelte.dev</a
@@ -37,4 +38,4 @@
 			<Button>Go To Product Page</Button>
 		</a>
 	</div>
-</section>
+</TransitionContainer>

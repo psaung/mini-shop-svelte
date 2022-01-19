@@ -5,6 +5,7 @@
 	import cart, { emptyCart } from '$lib/shared/stores/cart';
 	import { goto } from '$app/navigation';
 	import TotalPriceWrapper from '$lib/components/cart/TotalPriceWrapper.svelte';
+	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 
 	const VAT = 0.07;
 
@@ -71,11 +72,12 @@
 	<title>About</title>
 </svelte:head>
 
-<div class="content">
+<TransitionContainer>
+	<h3 class="mb-5">Cart Items</h3>
 	<CartListingItems disableAction={true} cartItems={$cart} />
 	<TotalPriceWrapper {subTotal} {vatCalculation} {grandTotal} />
 
-	<h3 class="my-3">Delivery Information</h3>
+	<h3 class="mt-5">Delivery Information</h3>
 	{#if error}
 		<div transition:blur={{ delay: 300, duration: 800 }}>
 			{error}
@@ -153,4 +155,4 @@
 			</div>
 		</form>
 	</div>
-</div>
+</TransitionContainer>

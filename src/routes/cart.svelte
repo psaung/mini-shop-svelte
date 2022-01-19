@@ -1,5 +1,6 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
+	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 
 	// we don't need any JS on this page, though we'll load
 	// it in dev so that we get hot module replacement...
@@ -18,8 +19,8 @@
 	<title>About</title>
 </svelte:head>
 
-<div class="content">
-	<h1>About this app</h1>
+<TransitionContainer>
+	<h1 class="pb-5">About this app</h1>
 
 	<p>
 		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
@@ -34,7 +35,7 @@
 		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
 		the devtools network panel and reloading.
 	</p>
-</div>
+</TransitionContainer>
 
 <style>
 	.content {

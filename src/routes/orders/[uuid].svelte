@@ -24,13 +24,14 @@
 	import type { Order } from '$lib/shared/types/Order';
 	import CartListingItems from '$lib/components/cart/CartListingItems.svelte';
 	import TotalPriceWrapper from '$lib/components/cart/TotalPriceWrapper.svelte';
+	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 
 	export let orderDetails: Order;
 
 	console.log(orderDetails);
 </script>
 
-<div class="content">
+<TransitionContainer>
 	<h3>Order Details</h3>
 
 	<CartListingItems disableAction={true} cartItems={orderDetails.order_items} />
@@ -56,4 +57,4 @@
 			<div class="text-amber-600">: {orderDetails.address}</div>
 		</div>
 	</div>
-</div>
+</TransitionContainer>

@@ -26,6 +26,7 @@
 	import type { Product } from '$lib/shared/types/Product';
 	import AddToCartButton from '$lib/components/cart/AddToCartButton.svelte';
 	import cart, { addOne, subtractOne } from '$lib/shared/stores/cart';
+	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 	export let products: Product[];
 
 	const getQuantity = (id, cart) => {
@@ -50,8 +51,8 @@
 	<title>Products</title>
 </svelte:head>
 
-<div class="main-container">
-	<h1 class="mb-10">
+<TransitionContainer>
+	<h1 class="mb-5">
 		Products <span class="text-slate-500 dark:text-gray-300">{products.length}</span>
 	</h1>
 
@@ -66,7 +67,7 @@
 			</ProductItem>
 		{/each}
 	</div>
-</div>
+</TransitionContainer>
 
 <style>
 	.product-container {

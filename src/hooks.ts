@@ -5,6 +5,7 @@ import type { Handle } from '@sveltejs/kit';
 export const handle: Handle = async ({ request, resolve }) => {
 	const cookies = cookie.parse(request.headers.cookie || '');
 	request.locals.userid = cookies.userid || uuid();
+	request.locals.theme = cookies.theme || 'light';
 
 	// TODO https://github.com/sveltejs/kit/issues/1046
 	const method = request.query.get('_method');
@@ -24,4 +25,10 @@ export const handle: Handle = async ({ request, resolve }) => {
 	}
 
 	return response;
+};
+
+export const getSession = (request) => {
+	return {
+		theme: request.locals.theme || 'light'
+	};
 };

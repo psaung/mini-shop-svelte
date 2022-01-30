@@ -44,6 +44,11 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@beyonk/async-script-loader@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@beyonk/async-script-loader/-/async-script-loader-2.0.0.tgz#d8867e5cdf6ecd0e8cc06da06a8a5fb2a405f59f"
+  integrity sha512-OAhcycCXwSVsSMjJGAENz0qtrALW943IRbIGZRnJZBA2aO/BDdWuHY1gF/9l+dZITAEu/wAkwhMqtXNeqmW1rw==
+
 "@cspotcode/source-map-consumer@0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@cspotcode/source-map-consumer/-/source-map-consumer-0.8.0.tgz#33bf4b7b39c178821606f669bbc447a6a629786b"
@@ -1981,6 +1986,11 @@ sveltejs-forms@^2.1.2:
   dependencies:
     lodash-es "~4.17.15"
     svelte-writable-derived "~2.0.1"
+
+svemix@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/svemix/-/svemix-0.6.3.tgz#eb9bc49e14d3f82309f3157d816d4c66ed155103"
+  integrity sha512-PNPqloPKMcnzNU0LSG/nslLeoGWFtovC5FYZTx5fc1CBQ91wWw5lLVZtSYIaSj00uuAQkDgGo2tp3yIM4purjw==
 
 table@^6.0.9:
   version "6.7.5"

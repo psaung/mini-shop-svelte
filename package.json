@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@beyonk/async-script-loader": "^2.0.0",
 		"@fontsource/fira-mono": "^4.5.0",
 		"@lukeed/uuid": "^2.0.0",
 		"@supabase/supabase-js": "^1.29.1",
@@ -42,6 +43,7 @@
 		"lodash": "^4.17.21",
 		"svelte-local-storage-store": "^0.2.6",
 		"sveltejs-forms": "^2.1.2",
+		"svemix": "^0.6.3",
 		"ts-node": "^10.4.0",
 		"yup": "^0.32.11"
 	}

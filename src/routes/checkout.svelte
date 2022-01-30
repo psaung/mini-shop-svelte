@@ -69,7 +69,7 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>Checkout</title>
 </svelte:head>
 
 <TransitionContainer>

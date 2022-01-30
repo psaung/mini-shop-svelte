@@ -27,8 +27,6 @@
 	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 
 	export let orderDetails: Order;
-
-	console.log(orderDetails);
 </script>
 
 <TransitionContainer>

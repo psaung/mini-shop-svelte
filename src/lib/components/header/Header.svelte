@@ -6,12 +6,20 @@
 
 	$: isDark = $theme !== 'light';
 
-	function toggleTheme() {
-		if (isDark) {
-			return theme.set('light');
-		}
+	async function toggleTheme() {
+		const t = isDark ? 'light' : 'dark';
+		await fetch('/theme.json', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				theme: t
+			})
+		});
 
-		return theme.set('dark');
+		theme.set(t);
 	}
 </script>
 

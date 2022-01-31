@@ -9,7 +9,8 @@ export const post: RequestHandler<Theme, Theme> = async (request) => {
 	const headers = {
 		'Set-Cookie': cookie.serialize('theme', request.body.theme, {
 			path: '/',
-			httpOnly: true
+			httpOnly: true,
+			sameSite: true
 		})
 	};
 

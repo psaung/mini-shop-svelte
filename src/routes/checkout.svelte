@@ -84,7 +84,7 @@
 		</div>
 	{/if}
 	<div transition:blur={{ delay: 300, duration: 800 }}>
-		<form action="" class="my-7" on:submit|preventDefault={handleSubmit}>
+		<form action="" class="py-7" on:submit|preventDefault={handleSubmit}>
 			<div class="grid grid-cols-2 gap-5">
 				<div class="form-group">
 					<label for="firstname" class="block">First Name</label>

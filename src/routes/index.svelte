@@ -1,8 +1,6 @@
 <script context="module" lang="ts">
 	import Button from '$lib/components/button/Button.svelte';
 	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
-
-	export const prerender = true;
 </script>
 
 <svelte:head>

@@ -12,7 +12,6 @@
 
 	// since there's no dynamic data here, we can prerender
 	// it so that it gets served as a static asset in prod
-	export const prerender = true;
 </script>
 
 <svelte:head>
@@ -36,11 +35,3 @@
 		the devtools network panel and reloading.
 	</p>
 </TransitionContainer>
-
-<style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
-	}
-</style>

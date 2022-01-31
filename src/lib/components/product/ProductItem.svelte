@@ -4,7 +4,6 @@
 
 	export let product: Product;
 	export let isColumn = false;
-	export let index = 0;
 	/* transition:scale|local={{ start: 0.7 }} */
 </script>
 

@@ -1,3 +1,7 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
+
+// @migration task: Check imports
 import type { Order } from '$lib/shared/types/Order';
 import type { RequestHandler } from '@sveltejs/kit';
 import { createOrder } from './_api';

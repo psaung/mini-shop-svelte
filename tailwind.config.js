@@ -1,6 +1,6 @@
 module.exports = {
 	// add this section
-	purge: ['./src/**/*.html', './src/**/*.svelte'],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	darkMode: 'media', // or 'media' or 'class'
 	theme: {
 		extend: {}
@@ -8,6 +8,5 @@ module.exports = {
 	variants: {
 		extend: {}
 	},
-	darkMode: 'class',
 	plugins: []
 };

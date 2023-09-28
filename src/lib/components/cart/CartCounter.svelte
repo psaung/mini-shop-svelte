@@ -11,7 +11,7 @@
 <div class="inline-block mr-5">
 	<Counter count={quantity} {onIncrease} {onDecrease} />
 </div>
-<span on:click={() => onDecrease(true)} class="inline-block">
+<span on:click={() => onDecrease(true)} class="inline-block" aria-hidden="true">
 	<img src={imgURL} alt="Remove" class="remove-icon rounded-full" />
 </span>
 

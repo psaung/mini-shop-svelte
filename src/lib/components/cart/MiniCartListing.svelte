@@ -8,8 +8,8 @@
 </script>
 
 <div>
-	{#each Object.keys(cartItems).map((v) => cartItems[v]) as cart, index (cart.product.id)}
-		<ProductItem product={cart.product} {index} isColumn={true}>
+	{#each Object.keys(cartItems).map((v) => cartItems[v]) as cart (cart.product.id)}
+		<ProductItem product={cart.product}  isColumn={true}>
 			<CartCounter
 				quantity={cart.quantity}
 				onIncrease={() => onIncrease(cart.product)}

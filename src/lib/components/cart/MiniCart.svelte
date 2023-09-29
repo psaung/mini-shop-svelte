@@ -53,12 +53,15 @@
 	style="display: {$toggleCartItems === 0 ? 'none' : 'block'};"
 	class="backdrop"
 	on:click={toggleCart}
+	aria-hidden="true"
+
 />
 <section
 	class="cart-container dark:bg-gray-800 cursor-pointer shadow bg-stone-100 rounded-full flex justify-center flex-col items-center"
 	style="transform: scale({offset});  border-radius: calc(50% - {50 -
 		$showCart * 50}% ); display: {$showCart === 0 ? 'none' : 'flex'}; opacity: {$showCart}"
 	on:click={toggleCart}
+	aria-hidden="true"
 >
 	{#if $quantity > 0}
 		<div
@@ -90,6 +93,7 @@
 		on:click={toggleCart}
 		class="absolute cursor-pointer flex items-center justify-items-center overflow-hidden z-50"
 		style="top: 10px; width: 30px; height: 30px; right: 20px"
+		aria-hidden="true"
 	>
 		<div
 			class="absolute close-btn-inner"
@@ -109,9 +113,10 @@
 	</div>
 	<div
 		class="flex flex-row justify-between p-5 absolute bottom-0 left-0 right-0 border-t-2 items-center z-50 bg-white dark:bg-gray-800 dark:border-t-slate-700"
+
 	>
 		<div>{parseInt($totalPrice).toLocaleString()}</div>
-		<div on:click={toggleCart} class={$totalPrice < 1 && 'cursor-not-allowed pointer-events-none'}>
+		<div on:click={toggleCart} class={$totalPrice < 1 && 'cursor-not-allowed pointer-events-none'} aria-hidden="true">
 			<a href="/checkout">
 				<Button btnType="small" isDisabled={$totalPrice < 1}>Checkout</Button>
 			</a>

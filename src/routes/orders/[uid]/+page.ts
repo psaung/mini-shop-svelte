@@ -2,13 +2,13 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 // see https://kit.svelte.dev/docs#loading
-export const load: PageLoad = async ({ fetch }) => {
-	const res = await fetch('/api/products.json');
+export const load: PageLoad = async ({ fetch, params }) => {
+	const res = await fetch(`/api/orders/${params.uid}.json`);
 
 	if (res.ok) {
-		const { data: products } = await res.json();
+		const { data: orderDetails } = await res.json();
 
-		return { products };
+		return { orderDetails };
 	}
 
 	const { message } = await res.json();

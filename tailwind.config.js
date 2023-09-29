@@ -1,7 +1,7 @@
 module.exports = {
 	// add this section
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-	darkMode: 'media', // or 'media' or 'class'
+	darkMode: 'class', // or 'media' or 'class'
 	theme: {
 		extend: {}
 	},

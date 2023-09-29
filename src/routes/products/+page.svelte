@@ -1,13 +1,11 @@
 <script lang="ts">
-	// throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
 	import ProductItem from '$lib/components/product/ProductItem.svelte';
 	import type { PageData } from './$types';
 	import AddToCartButton from '$lib/components/cart/AddToCartButton.svelte';
 	import cart, { addOne, subtractOne } from '$lib/shared/stores/cart';
 	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
 
-	export let data: PageData;
+	export let data: PageData = {products: [], t: ''};
 
 	const getQuantity = (id, cart) => {
 		const item = cart.find((c) => c.product_id === id);
@@ -36,8 +34,9 @@
 		Products <span class="text-slate-500 dark:text-gray-300">{data.products?.length}</span>
 	</h1>
 
+
 	<div class="product-container">
-		{#each data?.products as product, index (product.id)}
+		{#each data?.products as product (product.id)}
 			<ProductItem {product}>
 				<AddToCartButton
 					quantity={getQuantity(product.id, $cart)}

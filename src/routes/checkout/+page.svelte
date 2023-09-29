@@ -36,7 +36,7 @@
 		isLoading = true;
 
 		try {
-			const rawResponse = await fetch('/orders.json', {
+			const rawResponse = await fetch('/api/orders.json', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
@@ -66,6 +66,7 @@
 
 		isLoading = false;
 	};
+
 </script>
 
 <svelte:head>

@@ -26,12 +26,14 @@
 <header>
 	<nav>
 		<ul>
-			<li class:active={$page.path === '/'}>
-				<a sveltekit:prefetch href="/">Home</a>
+			<li class:active={$page.route.id === '/'}>
+				<a href="/">Home</a>
 			</li>
-			<li class:active={$page.path === '/cart'}><a sveltekit:prefetch href="/cart">About</a></li>
-			<li class:active={$page.path === '/products'}>
-				<a sveltekit:prefetch href="/products">Products</a>
+			<li class:active={$page.route.id === '/cart'}>
+				<a  href="/cart">About</a>
+			</li>
+			<li class:active={$page.route.id === '/products'}>
+				<a href="/products">Products</a>
 			</li>
 		</ul>
 	</nav>

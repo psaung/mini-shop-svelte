@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import * as _ from 'lodash';
-import { browser } from '$app/env';
+import { browser } from '$app/environment';
 import type { CartItem } from '../types/Cart';
 import type { Product } from '../types/Product';
 

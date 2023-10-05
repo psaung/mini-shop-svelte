@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
 	import Button from '$lib/components/button/Button.svelte';
 	import TransitionContainer from '$lib/components/utils/TransitionContainer.svelte';
+
 </script>
 
 <svelte:head>
@@ -32,8 +33,9 @@
 	</ul>
 
 	<div class="items-center flex justify-center mt-10">
-		<a sveltekit:prefetch href="/products">
+		<a data-sveltekit-preload-data="hover" href="/products">
 			<Button>Go To Product Page</Button>
 		</a>
 	</div>
+
 </TransitionContainer>

@@ -3,7 +3,7 @@
 	export let handleClick;
 </script>
 
-<div class="wrapper" class:active on:click={handleClick} />
+<div class="wrapper" class:active on:click={handleClick} aria-hidden="true" />
 
 <style>
 	.wrapper {

@@ -1,13 +1,3 @@
-<script context="module">
-	export async function load({ session }) {
-		return {
-			props: {
-				t: session.theme
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
 	import Header from '$lib/components/header/Header.svelte';
 	import MiniCart from '$lib/components/cart/MiniCart.svelte';
@@ -15,9 +5,9 @@
 
 	import '../app.css';
 
-	export let t;
+	export let data : { t: string };
 
-	theme.set(t);
+	theme.set(data.t);
 </script>
 
 <section class={$theme === 'dark' ? 'dark' : 'light'}>

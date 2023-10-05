@@ -9,6 +9,7 @@ export type Order = {
 	phone: string;
 	address: string;
 	order_items?: Array<CartItem>;
+	products: Array<CartItem>;
 	total_price?: number;
 	subtotal_price?: number;
 	vat_calculated_price?: number;
